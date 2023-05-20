@@ -6,13 +6,15 @@ export const socketController = (socket) => {
 
   socket.emit('last-ticket', `Ticket #${ticketControl.last}`)
   socket.emit('status', ticketControl.lastTickets)
+  socket.emit('pending-tickets', ticketControl.tickets.length)
 
   socket.on('next-ticket', (_, callback) => {
     const next = ticketControl.nextTicket()
-
+    
     callback(next)
-
+    
     // TODO: Handle new ticket to serve
+    socket.broadcast.emit('pending-tickets', ticketControl.tickets.length)
   })
 
   socket.on('serve-ticket', ({ desktop }, callback) => {
@@ -26,6 +28,8 @@ export const socketController = (socket) => {
     const servedTicket = ticketControl.serveTicket(desktop)
 
     socket.broadcast.emit('status', ticketControl.lastTickets)
+    socket.emit('pending-tickets', ticketControl.tickets.length)
+    socket.broadcast.emit('pending-tickets', ticketControl.tickets.length)
     
     if (!servedTicket) {
       return callback({

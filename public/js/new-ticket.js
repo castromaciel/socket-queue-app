@@ -19,4 +19,7 @@ newTicketButton.addEventListener('click', () => {
   socket.emit('next-ticket', null, (ticket) => {
     newTicketLabel.innerText = ticket
   })
+  socket.emit('pending-tickets', null, (ticket) => {
+    console.log(ticket)
+  })
 })
