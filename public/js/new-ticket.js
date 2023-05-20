@@ -11,10 +11,6 @@ socket.on('disconnect', () => {
   newTicketButton.disabled = true
 })
 
-socket.on('send-message', (payload) => {
-  console.log('From Server', payload)
-})
-
 socket.on('last-ticket', lastTicket => {
   newTicketLabel.innerText = lastTicket
 })

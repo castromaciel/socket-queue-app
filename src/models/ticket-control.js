@@ -71,7 +71,6 @@ export class TicketControl {
       this.lastTickets.splice(-1, 1)
     }
 
-    console.log(this.lastTickets)
     this.saveDB()
     return currentTicket
   }
