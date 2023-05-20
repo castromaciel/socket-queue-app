@@ -5,6 +5,7 @@ const ticketControl = new TicketControl()
 export const socketController = (socket) => {
 
   socket.emit('last-ticket', `Ticket #${ticketControl.last}`)
+  socket.emit('status', ticketControl.lastTickets)
 
   socket.on('next-ticket', (_, callback) => {
     const next = ticketControl.nextTicket()
@@ -24,7 +25,7 @@ export const socketController = (socket) => {
 
     const servedTicket = ticketControl.serveTicket(desktop)
 
-    // TODO: Notify changes at last fours tickets
+    socket.broadcast.emit('status', ticketControl.lastTickets)
     
     if (!servedTicket) {
       return callback({
