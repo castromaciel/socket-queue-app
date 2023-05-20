@@ -13,4 +13,29 @@ export const socketController = (socket) => {
 
     // TODO: Handle new ticket to serve
   })
+
+  socket.on('serve-ticket', ({ desktop }, callback) => {
+    if (!desktop) {
+      return callback({
+        message: 'Desktop is required',
+        status: 'error'
+      })
+    }
+
+    const servedTicket = ticketControl.serveTicket(desktop)
+
+    // TODO: Notify changes at last fours tickets
+    
+    if (!servedTicket) {
+      return callback({
+        message: 'There is not pending tickets',
+        status: 'error'
+      })
+    } else {
+      return callback({
+        ticket: servedTicket,
+        status: 'success'
+      })
+    }
+  })
 }
