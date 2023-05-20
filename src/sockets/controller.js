@@ -27,16 +27,15 @@ export const socketController = (socket) => {
 
     const servedTicket = ticketControl.serveTicket(desktop)
 
-    socket.broadcast.emit('status', ticketControl.lastTickets)
-    socket.emit('pending-tickets', ticketControl.tickets.length)
-    socket.broadcast.emit('pending-tickets', ticketControl.tickets.length)
-    
     if (!servedTicket) {
       return callback({
         message: 'There is not pending tickets',
         status: 'error'
       })
     } else {
+      socket.broadcast.emit('status', ticketControl.lastTickets)
+      socket.emit('pending-tickets', ticketControl.tickets.length)
+      socket.broadcast.emit('pending-tickets', ticketControl.tickets.length)
       return callback({
         ticket: servedTicket,
         status: 'success'
