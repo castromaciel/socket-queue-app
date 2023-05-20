@@ -3,6 +3,13 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import data from '../../db/data.json' assert { type: "json" };
 
+class Ticket {
+  constructor(number, desktop) {
+    this.number = number
+    this.desktop = desktop
+  }
+}
+
 export class TicketControl {
   constructor() {
     this.last = 0
@@ -39,6 +46,34 @@ export class TicketControl {
     
     const dbPath = path.join(__dirname, '../../db/data.json')
     fs.writeFileSync(dbPath, JSON.stringify( this.toJson ))
+  }
+
+  nextTicket() {
+    this.last += 1
+    const ticket = new Ticket(this.last, null)
+
+    this.tickets.push(ticket)
+    this.saveDB()
+    return `Ticket #${ticket.number}`
+  }
+
+  serveTicket(desktop) {
+    if (!this.tickets.length) {
+      return null
+    }
+    
+    const currentTicket = this.tickets.shift()
+    currentTicket.desktop = desktop
+
+    this.lastTickets.unshift(currentTicket)
+
+    if (this.lastTickets.length > 4) {
+      this.lastTickets.splice(-1, 1)
+    }
+
+    console.log(this.lastTickets)
+    this.saveDB()
+    return currentTicket
   }
 
 }
