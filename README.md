@@ -122,7 +122,7 @@ This project is licensed under the terms of the [MIT license][license-url].
 
 ## Credits
 
-Project_title is built and maintained by [Castro Maciel][profile-url].
+Socket Queue App is built and maintained by [Castro Maciel][profile-url].
 
 Badges used from [Ileriayo • markdown-badges](https://github.com/Ileriayo/markdown-badges).
 
