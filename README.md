@@ -31,14 +31,15 @@
 The app is all about practicing socket fundamentals and custom events.
 
 For this, an application is created in which tickets can be created and attended to on the screen. We access the screens through a form and a name.
+<br />
+<img width="1414" alt="image" src="https://github.com/castromaciel/socket-queue-app/assets/83432755/2466cf2f-9a45-4fe4-99aa-e41c1b8e375f">
 <hr />
-<img width="1435" alt="image" src="https://github.com/castromaciel/socket-queue-app/assets/83432755/d33c3f86-45a5-417c-8955-de11ec8fb273">
 
 On this screen (or desktop) we can attend to these tickets one by one. In addition, we can see the pending tickets.
-<hr />
-<img width="1410" alt="image" src="https://github.com/castromaciel/socket-queue-app/assets/83432755/e91307e3-21f2-4b89-86dd-1211223f5221">
+<br />
+<img width="1414" alt="image" src="https://github.com/castromaciel/socket-queue-app/assets/83432755/0ea693d5-7505-42fc-ae08-ee55ae6eec3d">
 
-<img width="1433" alt="image" src="https://github.com/castromaciel/socket-queue-app/assets/83432755/73bff974-d905-4d6c-9f3a-e7f0381204ce">
+<img width="1414" alt="image" src="https://github.com/castromaciel/socket-queue-app/assets/83432755/933ff9db-0f10-4ddd-aa49-541f6e280c03">
 
 ### Technologies used
 [![socket.io][socket.io]][socket.io-url]
@@ -128,7 +129,6 @@ Badges used from [Ileriayo • markdown-badges](https://github.com/Ileriayo/mark
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [license-url]: https://github.com/castromaciel/socket-queue-app/blob/main/LICENSE
-[nodejs-url]: https://nodejs.org/en
 [profile-url]: https://github.com/castromaciel
 
 [socket.io]: https://img.shields.io/badge/Socket.io-black?style=for-the-badge&logo=socket.io&badgeColor=010101
